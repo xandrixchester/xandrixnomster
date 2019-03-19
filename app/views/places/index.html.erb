@@ -10,5 +10,5 @@
 	</div>
 <% end %>
 
-<%= will_paginate @place %>
+<%= will_paginate @places, rederer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
 
