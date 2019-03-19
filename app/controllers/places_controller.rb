@@ -2,9 +2,13 @@ class PlacesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 	def index
 		# .pagiinate(page: params[:page], per_page: 1 "change how many you want each page to show")
-		@places = Place.all.order("created_at DESC").paginate(page: params[:page], per_page: 1)
+		@places = Place.all
 	end
 
+	def index
+		@places = Place.order("created_at DESC").paginate(page: params[:page], per_page: 1)
+	end
+	
 	def new
 		@place = Place.new
 	end
@@ -13,6 +17,8 @@ class PlacesController < ApplicationController
 		current_user.places.create(place_params)
 		redirect_to root_path
 	end
+
+
 
 	private
 
