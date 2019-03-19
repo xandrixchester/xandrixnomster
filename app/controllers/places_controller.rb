@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 
 	def index
 		# .pagiinate(page: params[:page], per_page: 1 "change how many you want each page to show")
-		@places = Place.all.order("created_at DESC").paginate(page: params[:page], per_page: 1)
+		@places = Place.all.order("created_at DESC").paginate(page: params[:page], per_page: 3)
 	end
 
 	def new
