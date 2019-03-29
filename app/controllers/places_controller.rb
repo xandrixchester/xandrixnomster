@@ -40,7 +40,7 @@ class PlacesController < ApplicationController
 		end
 
 		@place.update_attributes(place_params)
-		if @place.valid
+		if @place.valid?
 			redirect_to root_path
 		else
 			render :edit, status: :unprocessable_entity
@@ -60,7 +60,7 @@ class PlacesController < ApplicationController
 	private
 
 	def place_params
-		params.require(:place).permit(:name, :description, :address)
+		params.require(:place).permit(:name, :description, :address, :picture)
 	end
 
 

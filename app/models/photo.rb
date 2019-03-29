@@ -1,4 +1,5 @@
-class Photo < ApplicationRecord
-	belongs_to :user
+class Photo < ActiveRecord::Base
 	belongs_to :place
+
+	mount_uploader :picture, PictureUploader
 end
