@@ -101,9 +101,6 @@
 
 
 
-
-
-
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -133,4 +130,13 @@
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal2">
     Add a photo
   </button>
+</div>
+
+
+<div>
+<% @place.photos.each do |photo| %>
+  <%= image_tag photo.picture.url %>
+  <%= photo.caption %>
+ 
+<% end %>
 </div>
