@@ -1,10 +1,16 @@
-<div class="booyah-box col-10 offsest-1"
+<div class="booyah-box col-10 offsest-1">
 	<h1>Edit Your Place</h1>
 	<%= simple_form_for @place do |f| %>
 		<%= f.input :name %>
 		<%= f.input :address %>
 		<%= f.input :description %>
-		<br />
+		<br /> <br />
+		<% @place.photos.each do |photo| %>
+	  <%= image_tag photo.picture.url %>
+	  <%= photo.caption %>
+		<% end %>
+		<br /><br /><br />
+		
 		<%= f.submit 'Create', class: 'btn btn-primary' %>
 	<% end %>
 </div>

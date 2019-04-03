@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 
 	def index
 		# .pagiinate(page: params[:page], per_page: 1 "change how many you want each page to show")
-		@places = Place.all.order("created_at DESC").paginate(page: params[:page], per_page: 1)
+		@places = Place.all.order("created_at DESC").paginate(page: params[:page], per_page: 5)
 	end
 
 	def new
@@ -60,8 +60,8 @@ class PlacesController < ApplicationController
 	private
 
 	def place_params
-		params.require(:place, :photo).permit(:name, :description, :address, :picture)
-	end
+		params.require(:place).permit(:name, :description, :address, :picture)
+	end 
 
 
 end

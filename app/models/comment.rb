@@ -2,17 +2,14 @@ class Comment < ApplicationRecord
 	belongs_to :user
 	belongs_to :place
 
-	geocoded_by :address
-	after_validation :geocode 
-
-	validates :name, presence: true
+	validates :message, presence: true
 
 	RATINGS = {
-    'one star': '1_star',
-    'two stars': '2_stars',
-    'three stars': '3_stars',
-    'four stars': '4_stars',
-    'five stars': '5_stars'
+    'One star': '1_star',
+    'Two stars': '2_stars',
+    'Three stars': '3_stars',
+    'Four stars': '4_stars',
+    'Five stars': '5_stars'
   }
 
   def humanized_rating

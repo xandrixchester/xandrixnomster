@@ -4,6 +4,7 @@
 		<i><%= place.address %></i><br />
 		<p><%= place.description %></p><br />
 
+
 		<% if place.user.present? %>
 			<small><%= place.user.email %></small>
 		<% end %>
@@ -12,9 +13,15 @@
 		<div class="col-12">
 		  <blockquote>
 		    <% if place.comments.last.humanized_rating.present? %>
-		      <b><%= place.comments.last.humanized_rating %></b> -
+		      <b><%= place.comments.last.humanized_rating %></b>
 		    <% end %>
-		    <%= place.comment.last.message %>
+
+<div class="clear"></div>
+
+		    <%= place.comments.last.message %>
+
+<div class="clear"></div>
+
 		    <small><%= place.comments.last.user.email %></small>
 		  </blockquote>
 		</div>
