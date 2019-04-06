@@ -4,12 +4,23 @@
 		<i><%= place.address %></i><br />
 		<p><%= place.description %></p><br />
 
-
+	  <br />
 		<% if place.user.present? %>
 			<small><%= place.user.email %></small>
 		<% end %>
+		<br /><br />
 
-	<% if place.comments.present? %>
+		<div class="row">
+			
+				<div class="col-10 offset-1">
+					<% place.photos.each do |photo| %>
+					<%= image_tag photo.picture.url %>
+					<% end %>
+				</div>
+		
+		</div>
+
+		<% if place.comments.present? %>
 		<div class="col-12">
 		  <blockquote>
 		    <% if place.comments.last.humanized_rating.present? %>
@@ -23,8 +34,13 @@
 <div class="clear"></div>
 
 		    <small><%= place.comments.last.user.email %></small>
-		  </blockquote>
+		  </blockquote>    
+
+  </div>
+
+</div>
 		</div>
+
 	<% end %>
 	</div>
 <% end %>
